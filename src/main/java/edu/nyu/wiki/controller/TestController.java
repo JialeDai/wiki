@@ -2,16 +2,13 @@ package edu.nyu.wiki.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Map;
 
 @RestController
 public class TestController {
     @GetMapping("/hello")
     public String hello(){
-        return "hello world: get";
+        return "hello world: get111222";
     }
 
     @PostMapping("/hello")
