@@ -122,21 +122,23 @@ export default defineComponent({
             ebooks.value = data.content
           })
     })
+    const actions: Record<string, string>[] = [
+      { type: 'StarOutlined', text: '156' },
+      { type: 'LikeOutlined', text: '156' },
+      { type: 'MessageOutlined', text: '2' },
+    ];
+    const pagination = {
+      onChange: (page: number) => {
+        console.log(page);
+      },
+      pageSize: 3,
+    };
 
     return {
       ebooks,
       listData,
-      pagination:{
-        onChange: (page: any) => {
-          console.log(page);
-        },
-        pageSize: 3
-      },
-      actions: [
-        {type : "StarOutLined", text: "156"},
-        {type : "LikeOutLined", text: "156"},
-        {type: "MessageOutlined", text: 2}
-      ],
+      pagination,
+      actions,
     }
   }
 });
