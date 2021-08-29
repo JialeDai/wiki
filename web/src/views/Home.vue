@@ -49,7 +49,7 @@
       <a-layout-content
           :style="{ background: '#fff', padding: '24px', margin: 0, minHeight: '280px' }"
       >
-        <a-list item-layout="vertical" size="large" :pagination="pagination" :data-source="ebooks" :grid="{gutter: 20, columns: 3}">
+        <a-list item-layout="vertical" size="large" :data-source="ebooks" :grid="{gutter: 20, columns: 3}">
 <!--          <template #footer>-->
 <!--            <div>-->
 <!--              <b>ant design vue</b>-->
@@ -64,19 +64,12 @@
                   {{ text }}
                 </span>
               </template>
-<!--              <template #extra>-->
-<!--                <img-->
-<!--                    width="272"-->
-<!--                    alt="logo"-->
-<!--                    src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"-->
-<!--                />-->
-<!--              </template>-->
               <a-list-item-meta :description="item.description">
                 <template #title>
                   <a :href="item.href">{{ item.name }}</a>
                 </template>
                 <template #avatar>
-                  <a-avatar :src="item.cover"/>
+                  <a-avatar :src="item.cover" shape="square" size="50"/>
                 </template>
               </a-list-item-meta>
 <!--              {{ item.content }}-->
@@ -115,7 +108,7 @@ export default defineComponent({
 
     onMounted(() => {
       console.log("onMounted")
-      axios.get("http://localhost:8880/ebook/list?name=Python").then(
+      axios.get("http://localhost:8880/ebook/list").then(
           (response) => {
             console.log(response)
             const data = response.data
