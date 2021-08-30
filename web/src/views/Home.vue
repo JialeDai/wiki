@@ -103,14 +103,11 @@ const listData: Record<string, string>[] = [];
 export default defineComponent({
   name: 'Home',
   setup() {
-    console.log("set up");
     const ebooks = ref()
 
     onMounted(() => {
-      console.log("onMounted")
       axios.get("/ebook/list").then(
           (response) => {
-            console.log(response)
             const data = response.data
             ebooks.value = data.content
           })
