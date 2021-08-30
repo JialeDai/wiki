@@ -50,12 +50,12 @@
           :style="{ background: '#fff', padding: '24px', margin: 0, minHeight: '280px' }"
       >
         <a-list item-layout="vertical" size="large" :data-source="ebooks" :grid="{gutter: 20, columns: 3}">
-<!--          <template #footer>-->
-<!--            <div>-->
-<!--              <b>ant design vue</b>-->
-<!--              footer part-->
-<!--            </div>-->
-<!--          </template>-->
+          <!--          <template #footer>-->
+          <!--            <div>-->
+          <!--              <b>ant design vue</b>-->
+          <!--              footer part-->
+          <!--            </div>-->
+          <!--          </template>-->
           <template #renderItem="{ item }">
             <a-list-item key="item.name">
               <template #actions>
@@ -72,7 +72,7 @@
                   <a-avatar :src="item.cover" shape="square" size="50"/>
                 </template>
               </a-list-item-meta>
-<!--              {{ item.content }}-->
+              <!--              {{ item.content }}-->
             </a-list-item>
           </template>
         </a-list>
@@ -108,7 +108,7 @@ export default defineComponent({
 
     onMounted(() => {
       console.log("onMounted")
-      axios.get("http://localhost:8880/ebook/list").then(
+      axios.get(process.env.VUE_APP_SERVER + "/ebook/list").then(
           (response) => {
             console.log(response)
             const data = response.data
@@ -116,9 +116,9 @@ export default defineComponent({
           })
     })
     const actions: Record<string, string>[] = [
-      { type: 'StarOutlined', text: '156' },
-      { type: 'LikeOutlined', text: '156' },
-      { type: 'MessageOutlined', text: '2' },
+      {type: 'StarOutlined', text: '156'},
+      {type: 'LikeOutlined', text: '156'},
+      {type: 'MessageOutlined', text: '2'},
     ];
     const pagination = {
       onChange: (page: number) => {
